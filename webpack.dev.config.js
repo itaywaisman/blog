@@ -15,6 +15,7 @@ module.exports = {
       path.join(__dirname, './src/app/index.js'),
     ],
     vendor: [
+      'bootstrap-loader',
       'react',
       'react-dom',
     ],
@@ -44,6 +45,7 @@ module.exports = {
 		  {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream" },
 		  {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml" },
       {test: /\.scss$/, loaders: ['style', 'css', 'sass'] },
+      {test:/bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/, loader: 'imports?jQuery=jquery' },
     ],
   },
 
