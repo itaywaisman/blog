@@ -15,7 +15,6 @@ module.exports = {
       path.join(__dirname, './src/app/index.js'),
     ],
     vendor: [
-      'bootstrap-loader',
       'react',
       'react-dom',
     ],
@@ -39,13 +38,13 @@ module.exports = {
     loaders: [
       {test: /.jsx?$/,include: path.join(__dirname, '../src/app'),loader: 'babel',},
       {test: /\.jsx?$/, exclude: /(node_modules|bower_components)/, loader: 'babel' },
-		  {test: /\.css$/, loader: 'style-loader!css-loader' },
+		  {test: /\.css$/, loaders: ['style-loader', 'css-loader'] },
 		  {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
 		  {test: /\.(woff|woff2)$/, loader:"url?prefix=font/&limit=5000" },
 		  {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream" },
 		  {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml" },
-      {test: /\.scss$/, loaders: ['style', 'css', 'sass'] },
-      {test:/bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/, loader: 'imports?jQuery=jquery' },
+      {test: /\.(jpe?g|gif|png|svg)$/i, loader: 'url-loader?limit=10000' },
+      {test: /\.scss$/, loaders: ['style-loader', 'css-loader?sourceMap', 'sass-loader?sourceMap'] },
     ],
   },
 
