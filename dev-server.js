@@ -3,6 +3,7 @@ if (process.env.NODE_ENV !== 'development') {
 }
 
 import config from './webpack.dev.config.js';
+import cors from 'cors';
 import Express from 'express';
 import path from 'path';
 import webpack from 'webpack';
@@ -15,6 +16,8 @@ const app = new Express();
 const compiler = webpack(config);
 app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }));
 app.use(webpackHotMiddleware(compiler));
+
+app.use(cors());
 
 // Initialize public assets folder and server compiled index.html
 app.use(Express.static(path.resolve(__dirname, './dist')));

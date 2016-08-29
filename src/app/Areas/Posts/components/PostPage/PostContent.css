@@ -1,0 +1,11 @@
+.post-content {
+  padding: 1em 0;
+}
+
+.post-content > * {
+  margin: 1em;
+}
+
+.post-content > code {
+  margin: 1em 0;
+}

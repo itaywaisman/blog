@@ -10,21 +10,7 @@ export default class PostsListPage extends Component {
       {
         cuid: cuid(),
         title: 'Random post title',
-        slug: 'Some post slug',
-        description: 'Civility vicinity graceful is it at. Improve up at to on mention perhaps raising. Way building not get formerly her peculiar. Up uncommonly prosperous sentiments simplicity acceptance to so. Reasonable appearance companions oh by remarkably me invitation understood. Pursuit elderly ask perhaps all. ',
-        publishDate: new Date(),
-      },
-      {
-        cuid: cuid(),
-        title: 'Random post title',
-        slug: 'Some post slug',
-        description: 'Civility vicinity graceful is it at. Improve up at to on mention perhaps raising. Way building not get formerly her peculiar. Up uncommonly prosperous sentiments simplicity acceptance to so. Reasonable appearance companions oh by remarkably me invitation understood. Pursuit elderly ask perhaps all. ',
-        publishDate: new Date(),
-      },
-      {
-        cuid: cuid(),
-        title: 'Random post title',
-        slug: 'Some post slug',
+        slug: 'Some-post-slug',
         description: 'Civility vicinity graceful is it at. Improve up at to on mention perhaps raising. Way building not get formerly her peculiar. Up uncommonly prosperous sentiments simplicity acceptance to so. Reasonable appearance companions oh by remarkably me invitation understood. Pursuit elderly ask perhaps all. ',
         publishDate: new Date(),
       },
