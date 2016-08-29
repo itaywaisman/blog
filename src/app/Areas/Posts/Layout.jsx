@@ -12,7 +12,7 @@ export default class Layout extends Component {
 
   render() {
     return (
-      <div className="layout-root">
+      <div className="layout-root teal lighten-5">
         <Header />
         <main className="container">
           {this.props.children}

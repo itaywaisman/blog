@@ -9,7 +9,7 @@ export default class Header extends Component {
           <div className="nav-wrapper">
             <a href="#" className="brand-logo">
               <span className="teal-text text-darken-1">ITAY WAISMAN</span>
-              <span  className="teal-text text-lighten-4"> \\ BLOG</span>
+              <span  className="teal-text text-lighten-3"> \\ BLOG</span>
             </a>
             <ul id="nav-mobile" className="right hide-on-med-and-down">
               <li><a className="teal-text text-darken-1" href="sass.html">GitHub</a></li>
