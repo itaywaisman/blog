@@ -1,33 +1,41 @@
-import cuid from 'cuid';
 import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+
+import { getPost } from '../reducer';
 
 import PostComments from '../components/PostPage/PostComments';
 import PostContent from '../components/PostPage/PostContent';
 import PostHeader from '../components/PostPage/PostHeader';
 
+@connect((state, props) => {
+  return {
+    post: getPost(state, props.params.id),
+  };
+})
 export default class PostPage extends Component {
-  static propTypes = {
 
+  static propTypes = {
+    params: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }).isRequired,
+    post: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      slug: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      publishDate: PropTypes.instanceOf(Date).isRequired,
+    }).isRequired,
   }
 
   render() {
-
-    const post = {
-      cuid: cuid(),
-      title: 'Random post title',
-      slug: 'Some-post-slug',
-      content: '**header** \n ```js\n console.log("hello"); \n```',
-      publishDate: new Date(),
-    }
-
     return (
       <div>
-        <div className="z-depth-1 white" style={{marginBottom: '1em'}}>
-          <PostHeader post={post}></PostHeader>
-          <PostContent post={post}></PostContent>
+        <div className="z-depth-1 white" style={{ marginBottom: '1em' }}>
+          <PostHeader post={this.props.post} />
+          <PostContent post={this.props.post} />
         </div>
 
-          <PostComments post={post}></PostComments>
+        <PostComments post={this.props.post} />
       </div>
     );
   }

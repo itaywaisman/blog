@@ -1,8 +1,7 @@
 # Itay Waisman's blog
 This is my blog source code.
 
-It is built using [ReactJS](https://facebook.github.io/react/), [MobX](https://github.com/mobxjs/mobx) 
-and is using [Firebase](https://firebase.google.com/) services.
+It is built using [ReactJS](https://facebook.github.io/react/) and [Redux](https://github.com/reactjs/redux).
 
 This is also highly based on the [MERN Project](http://mern.io/) for the development environment.
 
@@ -15,7 +14,7 @@ This is also highly based on the [MERN Project](http://mern.io/) for the develop
   npm start
 ```
 
-# Available Commands
+## Available Commands
 1. `npm run start` - starts the development server with hot reloading enabled
 
 2. `npm run build` - bundles the code to './dist' folder.

@@ -1,26 +1,43 @@
-import cuid from 'cuid';
 import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+
+import { getLoading, getPosts } from '../reducer.js';
+import * as postActions from '../actions';
 
 import PostsList from '../components/PostListPage/PostsList';
 
+@connect(state => {
+  return {
+    loading: getLoading(state),
+    posts: getPosts(state),
+  };
+})
 export default class PostsListPage extends Component {
 
+  static propTypes = {
+    loading: PropTypes.bool.isRequired,
+    posts: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      slug: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      publishDate: PropTypes.instanceOf(Date).isRequired,
+    })).isRequired,
+    dispatch: PropTypes.func.isRequired,
+  }
+
+  componentDidMount() {
+    this.props.dispatch(postActions.fetchPosts());
+  }
+
   render() {
-    let posts = [
-      {
-        cuid: cuid(),
-        title: 'Random post title',
-        slug: 'Some-post-slug',
-        description: 'Civility vicinity graceful is it at. Improve up at to on mention perhaps raising. Way building not get formerly her peculiar. Up uncommonly prosperous sentiments simplicity acceptance to so. Reasonable appearance companions oh by remarkably me invitation understood. Pursuit elderly ask perhaps all. ',
-        publishDate: new Date(),
-      },
-    ]
-
-
+    if (this.props.loading) {
+      return (<h1>Loading posts...</h1>);
+    }
     return (
       <div>
         <div className="z-depth-1 white">
-          <PostsList posts={posts}></PostsList>
+          <PostsList posts={this.props.posts} />
         </div>
         <div>
           <a href="#older" className="waves-effect waves-teal btn-flat">Older</a>

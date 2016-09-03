@@ -4,7 +4,7 @@ export default class PostHeader extends Component {
 
   static propTypes = {
     post: PropTypes.shape({
-      cuid: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       publishDate: PropTypes.instanceOf(Date).isRequired,
     }).isRequired

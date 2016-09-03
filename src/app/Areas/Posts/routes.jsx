@@ -6,8 +6,8 @@ import PostPage from './pages/PostPage';
 import PostsListPage from './pages/PostsListPage';
 
 export default (
-  <Route name='posts_root' path='/' component={Layout}>
-    <IndexRoute component={PostsListPage}></IndexRoute>
-    <Route name="post_page" path="/:slug-:cuid" component={PostPage}></Route>
+  <Route name="posts_root" path="/" component={Layout}>
+    <IndexRoute component={PostsListPage} />
+    <Route name="post_page" path="/:id" component={PostPage} />
   </Route>
-)
+);

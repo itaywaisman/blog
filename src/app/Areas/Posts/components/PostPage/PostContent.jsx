@@ -15,7 +15,7 @@ export default class PostContent extends Component {
 
   static propTypes = {
     post: PropTypes.shape({
-      cuid: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
       content: PropTypes.string.isRequired,
       publishDate: PropTypes.instanceOf(Date).isRequired,
     }).isRequired

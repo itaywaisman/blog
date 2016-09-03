@@ -6,7 +6,7 @@ export default class PostComments extends Component {
 
   static propTypes = {
     post: PropTypes.shape({
-      cuid: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
     }).isRequired
   }
