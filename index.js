@@ -17,5 +17,5 @@ if (process.env.NODE_ENV === 'development') {
   });
   require('babel-polyfill');
 
-  require('./dev-server');
+  require('./server/server');
 }

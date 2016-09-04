@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import marked from 'marked';
 import highlight from 'highlight.js'
 
-import 'highlight.js/styles/atom-one-dark.css';
+// import 'highlight.js/styles/atom-one-dark.css';
 import './PostContent.css';
 
 marked.setOptions({

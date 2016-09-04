@@ -5,7 +5,7 @@ export default function Header() {
     <header className="container">
       <nav className="transparent z-depth-0">
         <div className="nav-wrapper">
-          <a href="#" className="brand-logo waves-effect waves-teal" style={{ fontWeight: '200' }}>
+          <a href="/" className="brand-logo waves-effect waves-teal" style={{ fontWeight: '200' }}>
             <span className="teal-text text-lighten-3">{'<'}</span>
             <strong className="teal-text text-darken-1" style={{ fontWeight: '500' }}>Itay Waisman</strong>
             <span className="teal-text text-lighten-3">{' />'}</span>
