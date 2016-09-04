@@ -1,19 +1,25 @@
+import axios from 'axios';
+
+const apiInstance = axios.create({
+  baseURL: '/api/posts/',
+});
+
 export function getPosts() {
-
+  return apiInstance.get('/');
 }
 
-export function getPost() {
-
+export function getPost(cuid) {
+  return apiInstance.get(`/${cuid}`);
 }
 
-export function createPost() {
-
+export function createPost(post) {
+  return apiInstance.post('/', post);
 }
 
-export function updatePost() {
-
+export function updatePost(post) {
+  return apiInstance.put(`/${post.cuid}`, post);
 }
 
-export function deletePost() {
-
+export function deletePost(cuid) {
+  return apiInstance.delete(`/${cuid}`);
 }

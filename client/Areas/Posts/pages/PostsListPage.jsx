@@ -17,7 +17,7 @@ export default class PostsListPage extends Component {
   static propTypes = {
     loading: PropTypes.bool.isRequired,
     posts: PropTypes.arrayOf(PropTypes.shape({
-      id: PropTypes.string.isRequired,
+      cuid: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       slug: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,

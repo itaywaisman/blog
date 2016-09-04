@@ -1,0 +1,6 @@
+{
+  "port": 80,
+  "dbConfig": {
+    "dbName": "blog-prod"
+  }
+}

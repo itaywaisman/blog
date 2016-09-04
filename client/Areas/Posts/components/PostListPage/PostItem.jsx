@@ -22,7 +22,7 @@ export default function PostItem(props) {
 
 PostItem.propTypes = {
   post: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    cuid: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,

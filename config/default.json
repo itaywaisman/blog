@@ -1,0 +1,8 @@
+{
+  "port": 8000,
+  "dbConfig" : {
+    "host": "localhost",
+    "port": "27017",
+    "dbName": "blog-dev"
+  }
+}

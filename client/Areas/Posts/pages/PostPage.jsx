@@ -16,10 +16,10 @@ export default class PostPage extends Component {
 
   static propTypes = {
     params: PropTypes.shape({
-      id: PropTypes.string.isRequired,
+      cuid: PropTypes.string.isRequired,
     }).isRequired,
     post: PropTypes.shape({
-      id: PropTypes.string.isRequired,
+      cuid: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       slug: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
