@@ -9,7 +9,7 @@ const mountApp = document.getElementById('root')
 
 render(
   <AppContainer>
-    <App store={store} />
+    <App store={store} renderSource="client"/>
   </AppContainer>,
   mountApp
 );
@@ -22,7 +22,7 @@ if (module.hot) {
     const NextApp = require('./App').default; // eslint-disable-line global-require
     render(
       <AppContainer>
-        <NextApp store={store} />
+        <NextApp store={store} renderSource="client"/>
       </AppContainer>,
       mountApp
     );

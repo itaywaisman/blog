@@ -8,6 +8,6 @@ import PostsListPage from './pages/PostsListPage';
 export default (
   <Route name="posts_root" path="/" component={Layout}>
     <IndexRoute component={PostsListPage} />
-    <Route name="post_page" path="/:cuid-:slug" component={PostPage} />
+    <Route name="post_page" path="/:slug-:cuid" component={PostPage} />
   </Route>
 );

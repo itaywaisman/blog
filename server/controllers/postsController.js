@@ -5,7 +5,6 @@ import slug from 'limax';
 export function getPosts(req, res) {
   Post.find().sort('-publishDate').exec((err, posts) => {
     if (err) res.status(500).send(err);
-
     res.json({ posts });
   });
 }

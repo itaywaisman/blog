@@ -6,7 +6,7 @@
   ],
   "verbose": true,
   "watch": [
-    "./dev-server.js"
+    "./server"
   ],
   "env": {
     "NODE_ENV": "development"

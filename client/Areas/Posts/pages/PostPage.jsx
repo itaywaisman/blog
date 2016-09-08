@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import { getPost } from '../reducer';
 
+import * as postActions from '../actions';
+
 import PostComments from '../components/PostPage/PostComments';
 import PostContent from '../components/PostPage/PostContent';
 import PostHeader from '../components/PostPage/PostHeader';
@@ -23,9 +25,11 @@ export default class PostPage extends Component {
       title: PropTypes.string.isRequired,
       slug: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
-      publishDate: PropTypes.instanceOf(Date).isRequired,
+      publishDate: PropTypes.string.isRequired,
     }).isRequired,
   }
+
+  static initialStateActions = [params => { return postActions.fetchPost(params.cuid); }];
 
   render() {
     return (

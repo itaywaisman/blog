@@ -1,5 +1,15 @@
-import { createAction } from 'redux-actions';
 import { getPosts, getPost } from '../../services/postsApi.js';
 
-export const fetchPosts = createAction('FETCH_POSTS', getPosts);
-export const fetchPost = createAction('FETCH_POST', getPost);
+export function fetchPosts() {
+  return {
+    type: 'FETCH_POSTS',
+    payload: getPosts(),
+  };
+}
+
+export function fetchPost(cuid) {
+  return {
+    type: 'FETCH_POST',
+    payload: getPost(cuid),
+  };
+}

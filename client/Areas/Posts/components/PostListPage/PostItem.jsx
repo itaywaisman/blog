@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
 export default function PostItem(props) {
-  const postUrl = `/${props.post.id}`;
+  const postUrl = `/${props.post.slug}-${props.post.cuid}`;
 
   return (
     <article style={{ padding: '1em' }}>
@@ -12,7 +12,9 @@ export default function PostItem(props) {
             {props.post.title}
           </h5>
         </Link>
-        <span className="right teal-text text-lighten-3">{props.post.publishDate.toDateString()}</span>
+        <span className="right teal-text text-lighten-3">
+          {new Date(props.post.publishDate).toDateString()}
+        </span>
       </header>
       <p>{props.post.description}</p>
       <Link to={postUrl}><p className="right-align">Read More</p></Link>
@@ -26,6 +28,6 @@ PostItem.propTypes = {
     title: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    publishDate: PropTypes.instanceOf(Date).isRequired,
+    publishDate: PropTypes.string.isRequired,
   }).isRequired,
 };

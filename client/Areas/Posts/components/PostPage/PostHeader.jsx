@@ -6,7 +6,7 @@ export default class PostHeader extends Component {
     post: PropTypes.shape({
       cuid: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
-      publishDate: PropTypes.instanceOf(Date).isRequired,
+      publishDate: PropTypes.string.isRequired,
     }).isRequired
   }
 
@@ -15,7 +15,7 @@ export default class PostHeader extends Component {
     return (
       <header style={{ padding: '1em' }}>
         <h5 className="amber-text text-darken-3" style={{ display: 'inline-block' }}>{this.props.post.title}</h5>
-        <span className="right teal-text text-lighten-3">{this.props.post.publishDate.toDateString()}</span>
+        <span className="right teal-text text-lighten-3">{new Date(this.props.post.publishDate).toDateString()}</span>
       </header>
     );
   }

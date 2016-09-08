@@ -1,10 +1,9 @@
 import { handleActions } from 'redux-actions';
 
-
 const reducer = handleActions({
   FETCH_POSTS_REQUESTED: (state, action) => ({
     loading: true,
-    data: action.payload,
+    data: [],
   }),
   FETCH_POSTS_FULFILLED: (state, action) => ({
     loading: false,
@@ -14,6 +13,18 @@ const reducer = handleActions({
   FETCH_POSTS_REJECTED: (state, action) => ({
     loading: false,
     data: [],
+    error: action.error,
+  }),
+  FETCH_POST_REQUESTED: (state, action) => ({
+    loading: true,
+  }),
+  FETCH_POST_FULFILLED: (state, action) => ({
+    loading: false,
+    data: state.data.filter(post => post.cuid !== action.payload.cuid).concat([action.payload]),
+    error: null,
+  }),
+  FETCH_POST_REJECTED: (state, action) => ({
+    loading: false,
     error: action.error,
   }),
 },

@@ -1,10 +1,10 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import promiseMiddleware from 'redux-promise';
+import promiseMiddleware from 'redux-promise-middleware';
 import rootReducer from './reducers';
 
 export default function configureStore(initializeState = {}) {
   const enhancers = [
-    applyMiddleware(promiseMiddleware),
+    applyMiddleware(promiseMiddleware()),
   ];
 
   const store = createStore(rootReducer, initializeState, compose(...enhancers));
@@ -15,6 +15,7 @@ export default function configureStore(initializeState = {}) {
     module.hot.accept('./reducers', () => {
        // eslint-disable-line newline-after-import
       const nextReducer = require('./reducers').default;
+
       store.replaceReducer(nextReducer);
     });
   }

@@ -3,11 +3,7 @@ import React, { PropTypes } from 'react';
 import PostItem from './PostItem';
 
 export default function PostsList(props) {
-  const posts = props.posts.map(p => <PostItem key={p.id} post={p} />);
-
-  for (let i = 1; i < posts.length; i += 2) {
-    posts.splice(i, 0, <div className="divider" />);
-  }
+  const posts = props.posts.map(p => <PostItem key={p.cuid} post={p} />);
 
   return (
     <div>
@@ -22,6 +18,6 @@ PostsList.propTypes = {
     title: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    publishDate: PropTypes.instanceOf(Date).isRequired,
+    publishDate: PropTypes.string.isRequired,
   })).isRequired,
 };

@@ -17,7 +17,6 @@ export default class PostContent extends Component {
     post: PropTypes.shape({
       cuid: PropTypes.string.isRequired,
       content: PropTypes.string.isRequired,
-      publishDate: PropTypes.instanceOf(Date).isRequired,
     }).isRequired
   }
 

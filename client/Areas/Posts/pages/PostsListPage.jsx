@@ -21,10 +21,16 @@ export default class PostsListPage extends Component {
       title: PropTypes.string.isRequired,
       slug: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
-      publishDate: PropTypes.instanceOf(Date).isRequired,
+      publishDate: PropTypes.string.isRequired,
     })).isRequired,
     dispatch: PropTypes.func.isRequired,
   }
+
+  // For server-side rendering. These actions will be called on the server side
+  // to initialize the state that this component needs.
+  // This is an array of simple action creators without parameters. If you need to pass
+  // parameters to the action creator, wrap it with another anonymous action.
+  static initialStateActions = [() => { return postActions.fetchPosts(); }];
 
   componentDidMount() {
     this.props.dispatch(postActions.fetchPosts());

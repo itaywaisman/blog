@@ -8,7 +8,6 @@ import { Provider } from 'react-redux';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
-import mongoose from 'mongoose';
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
@@ -23,6 +22,7 @@ import initDatabaseConnection from './database.js';
 import configureStore from '../client/store';
 import routes from '../client/routes';
 import { renderFullPage, renderError } from './render';
+import { fetchInitialState } from './utils/fetchInitialState';
 
 // Import routes
 import postRoutes from './routes/postsRoutes';
@@ -66,24 +66,28 @@ app.use((req, res, next) => {
 
     const store = configureStore();
 
-    const initialView = renderToString(
-      <Provider store={store}>
-        <RouterContext {...renderProps} />
-      </Provider>
-    );
+    return fetchInitialState(store, renderProps.components, renderProps.params)
+      .then(() => {
+        const initialView = renderToString(
+          <Provider store={store}>
+            <RouterContext {...renderProps} />
+          </Provider>
+        );
 
-    const finalState = store.getState();
+        const finalState = store.getState();
 
-    return res.set('Content-Type', 'text/html')
-      .status(200)
-      .end(renderFullPage(initialView, finalState));
+        res.set('Content-Type', 'text/html')
+          .status(200)
+          .end(renderFullPage(initialView, finalState));
+      })
+      .catch((error) => next(error));
   });
 });
 
 const serverPort = config.get('port');
 app.listen(serverPort, (error) => {
   if (!error) {
-    console.log(`Application is running on port serverPort.`);
+    console.log(`Application is running on port ${serverPort}.`);
   }
 });
 
